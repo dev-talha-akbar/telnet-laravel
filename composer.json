@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^7.1",
+        "graze/telnet-client": "^2.2",
         "illuminate/support": "^6.0"
     },
     "require-dev": {
@@ -34,7 +35,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
+        "test": "vendor\\bin\\phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
 
     },
@@ -47,7 +48,7 @@
                 "DevTalhaAkbar\\TelnetLaravel\\TelnetLaravelServiceProvider"
             ],
             "aliases": {
-                "TelnetLaravel": "DevTalhaAkbar\\TelnetLaravel\\TelnetLaravelFacade"
+                "Telnet": "DevTalhaAkbar\\TelnetLaravel\\TelnetLaravelFacade"
             }
         }
     }

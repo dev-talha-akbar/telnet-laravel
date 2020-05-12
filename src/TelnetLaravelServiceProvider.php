@@ -21,7 +21,7 @@ class TelnetLaravelServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('telnet-laravel.php'),
+                __DIR__.'/../config/telnet.php' => config_path('telnet.php'),
             ], 'config');
 
             // Publishing the views.
@@ -50,12 +50,17 @@ class TelnetLaravelServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'telnet-laravel');
+        $this->mergeConfigFrom(__DIR__.'/../config/telnet.php', 'telnet');
 
-        // Register the main class to use with the facade
-        $this->app->bind('DevTalhaAkbar\TelnetLaravel\TelnetLaravel', function ($app) {
-            $telnet = Graze\TelnetClient\TelnetClient::factory();
-            $telnet->connect(config('telnet-laravel.host').':'.config('telnet-laravel.port'));
+        $this->app->bind('DevTalhaAkbar\TelnetLaravel\Telnet', function ($app) {
+            $telnet = \Graze\TelnetClient\TelnetClient::factory();
+
+            $telnet->connect(
+                config('telnet.host') . ':' . config('telnet.port'),
+                config('telnet.prompt'),
+                config('telnet.promptError'),
+                config('telnet.lineEnding')
+            );
             return $telnet;
         });
     }
