@@ -16,6 +16,6 @@ class TelnetLaravelFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'telnet-laravel';
+        return 'DevTalhaAkbar\TelnetLaravel\Telnet';
     }
 }
