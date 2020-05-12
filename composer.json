@@ -1,0 +1,54 @@
+{
+    "name": "dev-talha-akbar/telnet-laravel",
+    "description": "",
+    "keywords": [
+        "dev-talha-akbar",
+        "telnet-laravel"
+    ],
+    "homepage": "https://github.com/dev-talha-akbar/telnet-laravel",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Talha Akbar",
+            "email": "dev.talha.akbar@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DevTalhaAkbar\\TelnetLaravel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DevTalhaAkbar\\TelnetLaravel\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DevTalhaAkbar\\TelnetLaravel\\TelnetLaravelServiceProvider"
+            ],
+            "aliases": {
+                "TelnetLaravel": "DevTalhaAkbar\\TelnetLaravel\\TelnetLaravelFacade"
+            }
+        }
+    }
+}
