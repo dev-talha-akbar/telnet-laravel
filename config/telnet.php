@@ -4,9 +4,6 @@
  * You can place your custom package configuration in here.
  */
 return [
-	'host' => '127.0.0.1',
-	'port' => '8080',
-	'prompt' => '$',
-	'promptError' => 'ERROR',
-	'lineEndings' => "\n",
+	'host' => env('TELNET_HOST', '127.0.0.1'),
+	'port' => env('TELNET_PORT', '23'),
 ];

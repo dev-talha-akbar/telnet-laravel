@@ -53,14 +53,8 @@ class TelnetLaravelServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/telnet.php', 'telnet');
 
         $this->app->bind('DevTalhaAkbar\TelnetLaravel\Telnet', function ($app) {
-            $telnet = \Graze\TelnetClient\TelnetClient::factory();
+            $telnet = new Telnet(config('telnet.host'), config('telnet.port'), 10, null);
 
-            $telnet->connect(
-                config('telnet.host') . ':' . config('telnet.port'),
-                config('telnet.prompt'),
-                config('telnet.promptError'),
-                config('telnet.lineEnding')
-            );
             return $telnet;
         });
     }
